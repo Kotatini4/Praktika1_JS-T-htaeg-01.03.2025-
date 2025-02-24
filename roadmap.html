@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дорожная карта</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 p-6">
+    <div class="max-w-4xl mx-auto">
+        <div id="menu-container"></div>
+
+    </div>
+
+    <div class="mx-auto p-6">
+        <div class="container w-fit mx-auto bg-white p-6 rounded-lg shadow-lg mt-6">
+
+            <h1 class="text-3xl font-bold text-center mb-6">Дорожная карта</h1>
+            <div id="roadmap" class="flex flex-col md:flex-row justify-center space-y-2 md:space-y-0 md:space-x-4 mb-6">
+                <button onclick="loadCategory('Backend')"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow w-full md:w-auto">Backend
+                </button>
+                <button onclick="loadCategory('Frontend')"
+                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow w-full md:w-auto">Frontend
+                </button>
+                <button onclick="loadCategory('Full Stack')"
+                    class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded shadow w-full md:w-auto">Full
+                    Stack
+                </button>
+            </div>
+            <div id="roadmap-details" class="space-y-4"></div>
+
+            <div id="modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
+                <div class="bg-white p-6 rounded-lg shadow-lg max-w-lg">
+                    <h2 id="modal-title" class="text-2xl font-bold mb-4"></h2>
+                    <iframe id="modal-video" class="w-96 h-96" src="" frameborder="0" allowfullscreen></iframe>
+                    <button onclick="closeModal()"
+                        class="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/roadmap.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+
+</html>

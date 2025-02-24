@@ -1,0 +1,90 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    width: inline-block;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/*roadmap*/
+.roadmap-btn {
+    background-color: #2563eb;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+.roadmap-btn:hover {
+    background-color: #1d4ed8;
+}
+
+/*News*/
+.news-article {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    text-align: left;
+    margin: 42px;
+}
+.news-article h3 {
+    margin: 0;
+    font-size: 18px;
+    font-size: 25px;
+    font-weight: 800;
+}
+.news-article img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.date-links {
+    margin-bottom: 20px;
+}
+.date-links a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: #000000;
+}
+.category{
+    text-align: center;
+    margin-bottom: 20px;
+}
+@media (max-width: 0px) {
+    #menu {
+        display: none; /* По умолчанию скрываем */
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    #menu a {
+        display: block;
+        padding: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    #menu-btn {
+        font-size: 24px;
+        cursor: pointer;
+        padding: 5px;
+    }
+}

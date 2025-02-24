@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>README Viewer</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body>
+
+    <body class="bg-gray-100 p-6">
+        <div class="max-w-4xl mx-auto">
+            <div id="menu-container"></div>
+        </div>
+
+        <div class="container">
+            <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6">
+                <img src="images/tal-tech.png" alt="TalTech Logo" class="w-32 mx-auto mb-4">
+                <h1 class="text-3xl font-bold text-center">TALLINNA TEHNIKAÜLIKOOL</h1>
+                <h2 class="text-xl text-center text-gray-700">INSENERITEADUSKOND</h2>
+                <p class="text-center font-semibold">Virumaa kolledž</p>
+                <p class="text-center italic">RAM0541 Veebiprogrammeerimine (N. Ivleva)</p>
+
+                <div class="text-left">
+                    <h2 class="text-2xl font-semibold mt-6">Веб-приложение с тремя задачами</h2>
+                    <h3 class="text-xl font-semibold mt-4">Структура проекта</h3>
+                    <ul class="list-disc list-inside">
+                        <li><strong>index.html</strong> - главная страница с меню</li>
+                        <li><strong>roadmap.html</strong> - дорожная карта</li>
+                        <li><strong>news.html</strong> - новости</li>
+                        <li><strong>workout.html</strong> - план тренировок</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold mt-4">Файлы проекта</h3>
+                    <ul class="list-disc list-inside">
+                        <li><strong>css/styles.css</strong> - основные стили</li>
+                        <li><strong>js/roadmap.js</strong> - логика для дорожной карты</li>
+                        <li><strong>js/news.js</strong> - логика для новостей</li>
+                        <li><strong>js/workout.js</strong> - логика для тренировок</li>
+                        <li><strong>data/roadmap.json</strong> - данные по дорожной карте</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold mt-4">Новости взяты из бесплатного API</h3>
+                    <p><a href="https://newsapi.org/" class="text-blue-500">newsapi.org</a></p>
+
+                    <h3 class="text-xl font-semibold mt-4">Пример данных API</h3>
+                    <pre class="bg-gray-200 p-4 rounded-lg overflow-auto text-sm">
+{
+    "status": "ok",
+    "totalResults": 1959,
+    "articles": [
+        {
+            "source": { "id": null, "name": "Gizmodo.com" },
+            "author": "Kyle Barr",
+            "title": "Apple Says It Will Showcase a New ‘Family Member’ That’s Likely the iPhone SE 4",
+            "description": "Apple's next big launch will take place next week...",
+            "url": "https://gizmodo.com/apple-says-it-will-showcase-a-new-family-member-thats-likely-the-iphone-se-4-2000563660",
+            "urlToImage": "https://gizmodo.com/app/uploads/2024/10/iPhone-SE-Phone-1-e1727875305463.jpg",
+            "publishedAt": "2025-02-13T17:18:36Z",
+            "content": "Apple is set to launch..."
+        }
+    ]
+}
+        </pre>
+
+                    <h3 class="text-xl font-semibold mt-4">Как запустить проект</h3>
+                    <p>Из-за политики CORS браузер может блокировать загрузку файлов напрямую. Чтобы обойти это
+                        ограничение, необходимо запустить локальный сервер.</p>
+
+                    <h4 class="text-lg font-semibold mt-3">Если у вас установлен Python:</h4>
+                    <pre class="bg-gray-200 p-4 rounded-lg overflow-auto text-sm">
+# Python 3
+python -m http.server 8000
+
+http://localhost:8000/
+        </pre>
+                </div>
+
+            </div>
+
+            <script src="js/menu.js"></script>
+    </body>
+
+</html>

@@ -1,0 +1,73 @@
+{
+  "Backend": {
+    "Основы": [
+      { "name": "HTTP/HTTPS", "youtube": "https://www.youtube.com/watch?v=HsTgfKKXL9Q" },
+      { "name": "REST API", "youtube": "https://www.youtube.com/watch?v=-MTSQjw5DrM" },
+      { "name": "CLI", "youtube": "https://www.youtube.com/watch?v=YHFzr-akOas" },
+      { "name": "Linux", "youtube": "https://www.youtube.com/watch?v=wBp0Rb-ZJak" }
+    ],
+    "Языки": [
+      { "name": "Python", "youtube": "https://www.youtube.com/watch?v=_uQrJ0TkZlc" },
+      { "name": "Java", "youtube": "https://www.youtube.com/watch?v=eIrMbAQSU34" },
+      { "name": "Node.js", "youtube": "https://www.youtube.com/watch?v=TlB_eWDSMt4" },
+      { "name": "PHP", "youtube": "https://www.youtube.com/watch?v=OK_JCtrrv-c" }
+    ],
+    "Фреймворки": [
+      { "name": "Django", "youtube": "https://www.youtube.com/watch?v=F5mRW0jo-U4" },
+      { "name": "Spring Boot", "youtube": "https://www.youtube.com/watch?v=vtPkZShrvXQ" },
+      { "name": "Express.js", "youtube": "https://www.youtube.com/watch?v=SccSCuHhOw0" },
+      { "name": "Laravel", "youtube": "https://www.youtube.com/watch?v=ImtZ5yENzgE" }
+    ],
+    "Базы данных": [
+      { "name": "PostgreSQL", "youtube": "https://www.youtube.com/watch?v=qw--VYLpxG4" },
+      { "name": "MongoDB", "youtube": "https://www.youtube.com/watch?v=ExcRbA7fy_A" },
+      { "name": "MySQL", "youtube": "https://www.youtube.com/watch?v=7S_tz1z_5bA" },
+      { "name": "Redis", "youtube": "https://www.youtube.com/watch?v=Hbt56gFj998" }
+    ]
+  },
+  "Frontend": {
+    "Основы": [
+      { "name": "HTML", "youtube": "https://www.youtube.com/watch?v=UB1O30fR-EE" },
+      { "name": "CSS", "youtube": "https://www.youtube.com/watch?v=1Rs2ND1ryYc" },
+      { "name": "JavaScript", "youtube": "https://www.youtube.com/watch?v=PkZNo7MFNFg" },
+      { "name": "DOM", "youtube": "https://www.youtube.com/watch?v=0ik6X4DJKCc" }
+    ],
+    "Языки": [
+      { "name": "JavaScript", "youtube": "https://www.youtube.com/watch?v=W6NZfCO5SIk" },
+      { "name": "TypeScript", "youtube": "https://www.youtube.com/watch?v=BwuLxPH8IDs" }
+    ],
+    "Фреймворки": [
+      { "name": "React", "youtube": "https://www.youtube.com/watch?v=Ke90Tje7VS0" },
+      { "name": "Vue", "youtube": "https://www.youtube.com/watch?v=FXpIoQ_rT_c" },
+      { "name": "Angular", "youtube": "https://www.youtube.com/watch?v=3qBXWUpoPHo" }
+    ],
+    "Сборщики": [
+      { "name": "Webpack", "youtube": "https://www.youtube.com/watch?v=5IG4UmULyoA" },
+      { "name": "Vite", "youtube": "https://www.youtube.com/watch?v=LkhbY6iyj80" },
+      { "name": "Parcel", "youtube": "https://www.youtube.com/watch?v=8cdNPPQllg8" }
+    ]
+  },
+  "Full Stack": {
+    "Основы": [
+      { "name": "Frontend + Backend", "youtube": "https://www.youtube.com/watch?v=nu_pCVPKzTk" },
+      { "name": "Git", "youtube": "https://www.youtube.com/watch?v=RGOj5yH7evk" },
+      { "name": "CI/CD", "youtube": "https://www.youtube.com/watch?v=fBfzFLO0wDQ" },
+      { "name": "Docker", "youtube": "https://www.youtube.com/watch?v=3c-iBn73dDE" }
+    ],
+    "Языки": [
+      { "name": "JavaScript", "youtube": "https://www.youtube.com/watch?v=upDLs1sn7g4" },
+      { "name": "Python", "youtube": "https://www.youtube.com/watch?v=_uQrJ0TkZlc" },
+      { "name": "Ruby", "youtube": "https://www.youtube.com/watch?v=t_ispmWmdjY" }
+    ],
+    "Фреймворки": [
+      { "name": "Next.js", "youtube": "https://www.youtube.com/watch?v=rtgbaKBhdkk" },
+      { "name": "Nuxt.js", "youtube": "https://www.youtube.com/watch?v=BNC6slYCj50" },
+      { "name": "Meteor", "youtube": "https://www.youtube.com/watch?v=U3UdbMJ7vvo" }
+    ],
+    "Базы данных": [
+      { "name": "PostgreSQL", "youtube": "https://www.youtube.com/watch?v=qw--VYLpxG4" },
+      { "name": "MongoDB", "youtube": "https://www.youtube.com/watch?v=ExcRbA7fy_A" },
+      { "name": "Firebase", "youtube": "https://www.youtube.com/watch?v=fgdpvwEWJ9M" }
+    ]
+  }
+}
