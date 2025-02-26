@@ -1,5 +1,4 @@
 ![TalTech Logo](images/tal-tech.png)
-Test
 
 # TALLINNA TEHNIKAÜLIKOOL
 
