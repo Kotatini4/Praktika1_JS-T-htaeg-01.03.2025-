@@ -61,6 +61,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 .getElementById("workout-content")
                 .classList.toggle("bg-gray-900");
             document
+                .getElementById("workout-form")
+                .classList.toggle("bg-gray-900");
+            document
                 .getElementById("workout-list")
                 .classList.toggle("bg-gray-900");
             document.querySelectorAll(".container").forEach((div) => {
@@ -68,6 +71,65 @@ document.addEventListener("DOMContentLoaded", () => {
             });
             document.getElementById("stats").classList.toggle("bg-gray-900");
             document.getElementById("stats").classList.toggle("text-white");
+            // Добавление тёмного режима для радиокнопок и меток
+            document.querySelectorAll("label").forEach((label) => {
+                label.classList.toggle("text-white");
+            });
+            document
+                .querySelectorAll('input[type="radio"]')
+                .forEach((input) => {
+                    input.classList.toggle("bg-gray-700");
+                    input.classList.toggle("border-gray-600");
+                });
+            document
+                .getElementById("workout-name")
+                .classList.toggle("bg-gray-700");
+            document
+                .getElementById("workout-name")
+                .classList.toggle("text-white");
+            document
+                .getElementById("workout-name")
+                .classList.toggle("border-gray-600");
+
+            document
+                .getElementById("workout-type")
+                .classList.toggle("bg-gray-700");
+            document
+                .getElementById("workout-type")
+                .classList.toggle("text-white");
+            document
+                .getElementById("workout-type")
+                .classList.toggle("border-gray-600");
+
+            document
+                .getElementById("workout-duration")
+                .classList.toggle("bg-gray-700");
+            document
+                .getElementById("workout-duration")
+                .classList.toggle("text-white");
+            document
+                .getElementById("workout-duration")
+                .classList.toggle("border-gray-600");
+
+            document
+                .getElementById("workout-frequency")
+                .classList.toggle("bg-gray-700");
+            document
+                .getElementById("workout-frequency")
+                .classList.toggle("text-white");
+            document
+                .getElementById("workout-frequency")
+                .classList.toggle("border-gray-600");
+
+            document
+                .getElementById("workout-comment")
+                .classList.toggle("bg-gray-700");
+            document
+                .getElementById("workout-comment")
+                .classList.toggle("text-white");
+            document
+                .getElementById("workout-comment")
+                .classList.toggle("border-gray-600");
         });
 });
 
