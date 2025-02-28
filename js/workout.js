@@ -72,10 +72,11 @@ document.addEventListener("DOMContentLoaded", () => {
             });
             document.getElementById("stats").classList.toggle("bg-gray-900");
             document.getElementById("stats").classList.toggle("text-white");
-            // Добавление тёмного режима для радиокнопок и меток
+
             document.querySelectorAll("label").forEach((label) => {
                 label.classList.toggle("text-white");
             });
+
             document
                 .querySelectorAll('input[type="radio"]')
                 .forEach((input) => {
