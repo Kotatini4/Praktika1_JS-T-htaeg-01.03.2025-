@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     let workoutContent = document.getElementById("workout-content");
     workoutContent.innerHTML = `
-        <h2 class='text-2xl font-semibold mb-4'></h2>
+        
         <button id='toggle-dark-mode' class='bg-gray-800 text-white p-2 rounded mb-4'>Тёмный режим</button>
         <form id='workout-form' class='bg-white p-4 shadow-md rounded-lg mb-6'>
             <input type='text' id='workout-name' placeholder='Название тренировки' class='border p-2 w-full mb-2' required>
@@ -21,10 +21,10 @@ document.addEventListener("DOMContentLoaded", () => {
             <button type='submit' class='bg-blue-500 text-white p-2 w-full rounded'>Добавить тренировку</button>
         </form>
         <div id='filters' class='mb-4'>
-            <button onclick='filterWorkouts("Силовая")' class='bg-green-500 text-white p-2 rounded'>Силовые</button>
-            <button onclick='filterWorkouts("Кардио")' class='bg-yellow-500 text-white p-2 rounded'>Кардио</button>
-            <button onclick='filterWorkouts("Йога")' class='bg-purple-500 text-white p-2 rounded'>Йога</button>
-            <button onclick='filterWorkouts("")' class='bg-gray-500 text-white p-2 rounded'>Все</button>
+            <button onclick='filterWorkouts("Силовая")' class='my-btn-gree bg-green-500 text-white p-2 rounded'>Силовые</button>
+            <button onclick='filterWorkouts("Кардио")' class='my-btn-yellow bg-yellow-500 text-white p-2 rounded'>Кардио</button>
+            <button onclick='filterWorkouts("Йога")' class='my-btn-purple bg-purple-500 text-white p-2 rounded'>Йога</button>
+            <button onclick='filterWorkouts("")' class='my-btn-gray bg-gray-500 text-white p-2 rounded'>Все</button>
         </div>
         <div id='workout-list' class='bg-white p-4 shadow-md rounded-lg mb-6'></div>
         <div id='stats' class='mt-4 text-lg'></div>
@@ -67,6 +67,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 .getElementById("workout-list")
                 .classList.toggle("bg-gray-900");
 
+            let elements = document.getElementsByClassName("workoutblacklist");
+
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].classList.toggle("bg-gray-700");
+                elements[i].classList.toggle("text-white");
+            }
+
             document.querySelectorAll(".container").forEach((div) => {
                 div.classList.toggle("bg-gray-900");
             });
@@ -81,6 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 .querySelectorAll('input[type="radio"]')
                 .forEach((input) => {
                     input.classList.toggle("bg-gray-700");
+                    input.classList.toggle("text-white");
                     input.classList.toggle("border-gray-600");
                 });
             document
@@ -178,6 +186,7 @@ function loadWorkouts(filter = "") {
     filteredWorkouts.forEach((workout, index) => {
         let workoutElement = document.createElement("div");
         workoutElement.classList.add(
+            "workoutblacklist",
             "bg-gray-200",
             "p-4",
             "rounded-lg",

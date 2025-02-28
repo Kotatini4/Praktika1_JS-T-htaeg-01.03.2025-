@@ -59,7 +59,7 @@ body {
     text-decoration: none;
     color: #000000;
 }
-.category{
+.category {
     text-align: center;
     margin-bottom: 20px;
 }
@@ -87,4 +87,72 @@ body {
         cursor: pointer;
         padding: 5px;
     }
+}
+/* Кнопки фильтров */
+button {
+    transition: all 0.3s ease-in-out; /* Плавные переходы для всех свойств */
+}
+
+/* При наведении на кнопку */
+button:hover {
+    background-color: #333; /* Темный фон при наведении */
+    transform: scale(1.05); /* Увеличение кнопки */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Легкая тень */
+}
+
+/* Кнопка с анимацией для удаления */
+#clear-workouts:hover,
+.roadmap-btn:hover {
+    background-color: #e11d48; /* Красный цвет для кнопки "Удалить все тренировки" */
+    transform: scale(1.1); /* Увеличение кнопки при наведении */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Тень */
+}
+
+/* При нажатии на кнопки */
+button:active {
+    transform: scale(0.95); /* Уменьшение кнопки при нажатии */
+    box-shadow: none; /* Убираем тень */
+}
+
+/* Дополнительные стили для кнопок */
+.my-btn-gree:hover {
+    background-color: #16a34a; /* Темный зеленый для кнопки Силовые */
+}
+
+.my-btn-yellow:hover {
+    background-color: #f59e0b; /* Темный желтый для кнопки Кардио */
+}
+
+.my-btn-purple:hover {
+    background-color: #7c3aed; /* Темный фиолетовый для кнопки Йога */
+}
+
+.my-btn-gray:hover {
+    background-color: #6b7280; /* Темный серый для кнопки Все */
+}
+
+/* Анимация для текста на кнопке */
+button {
+    position: relative;
+}
+
+button::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: transparent;
+    transition: all 0.3s ease-in-out;
+    z-index: -1; /* Поставим на задний план */
+}
+
+button:hover::after {
+    background-color: rgba(
+        0,
+        0,
+        0,
+        0.1
+    ); /* Легкая тень на заднем фоне кнопки */
 }
