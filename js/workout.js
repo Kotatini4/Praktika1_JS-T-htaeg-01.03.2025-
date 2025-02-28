@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     let workoutContent = document.getElementById("workout-content");
     workoutContent.innerHTML = `
-        <h2 class='text-2xl font-semibold mb-4'>Персональный план тренировок</h2>
+        <h2 class='text-2xl font-semibold mb-4'></h2>
         <button id='toggle-dark-mode' class='bg-gray-800 text-white p-2 rounded mb-4'>Тёмный режим</button>
         <form id='workout-form' class='bg-white p-4 shadow-md rounded-lg mb-6'>
             <input type='text' id='workout-name' placeholder='Название тренировки' class='border p-2 w-full mb-2' required>
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <button onclick='filterWorkouts("Йога")' class='bg-purple-500 text-white p-2 rounded'>Йога</button>
             <button onclick='filterWorkouts("")' class='bg-gray-500 text-white p-2 rounded'>Все</button>
         </div>
-        <div id='workout-list' class='space-y-2'></div>
+        <div id='workout-list' class='bg-white p-4 shadow-md rounded-lg mb-6'></div>
         <div id='stats' class='mt-4 text-lg'></div>
         <button id='clear-workouts' class='bg-red-500 text-white p-2 rounded mt-4'>Удалить все тренировки</button>
     `;
@@ -66,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document
                 .getElementById("workout-list")
                 .classList.toggle("bg-gray-900");
+
             document.querySelectorAll(".container").forEach((div) => {
                 div.classList.toggle("bg-gray-900");
             });
