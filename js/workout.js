@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', () => {
-    let workoutContent = document.getElementById('workout-content');
+document.addEventListener("DOMContentLoaded", () => {
+    let workoutContent = document.getElementById("workout-content");
     workoutContent.innerHTML = `
         <h2 class='text-2xl font-semibold mb-4'>Персональный план тренировок</h2>
         <button id='toggle-dark-mode' class='bg-gray-800 text-white p-2 rounded mb-4'>Тёмный режим</button>
@@ -33,70 +33,104 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadWorkouts();
 
-    document.getElementById('workout-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        addWorkout();
-    });
-
-    document.getElementById('clear-workouts').addEventListener('click', function() {
-        localStorage.removeItem('workouts');
-        loadWorkouts();
-    });
-
-    document.getElementById('toggle-dark-mode').addEventListener('click', function() {
-        document.body.classList.toggle('bg-gray-900');
-        document.querySelectorAll('h1').forEach(h2 => {
-            h2.classList.toggle('text-white');
-        });
-        document.querySelectorAll('h2').forEach(h2 => {
-            h2.classList.toggle('text-white');
-        });
-        document.getElementById('workout-content').classList.toggle('bg-gray-900');
-        document.getElementById('workout-list').classList.toggle('bg-gray-900');
-        document.querySelectorAll('.container').forEach(div => {
-            div.classList.toggle('bg-gray-900');
+    document
+        .getElementById("workout-form")
+        .addEventListener("submit", function (event) {
+            event.preventDefault();
+            addWorkout();
         });
 
-    });
+    document
+        .getElementById("clear-workouts")
+        .addEventListener("click", function () {
+            localStorage.removeItem("workouts");
+            loadWorkouts();
+        });
+
+    document
+        .getElementById("toggle-dark-mode")
+        .addEventListener("click", function () {
+            document.body.classList.toggle("bg-gray-900");
+            document.querySelectorAll("h1").forEach((h2) => {
+                h2.classList.toggle("text-white");
+            });
+            document.querySelectorAll("h2").forEach((h2) => {
+                h2.classList.toggle("text-white");
+            });
+            document
+                .getElementById("workout-content")
+                .classList.toggle("bg-gray-900");
+            document
+                .getElementById("workout-list")
+                .classList.toggle("bg-gray-900");
+            document.querySelectorAll(".container").forEach((div) => {
+                div.classList.toggle("bg-gray-900");
+            });
+            document.getElementById("stats").classList.toggle("bg-gray-900");
+            document.getElementById("stats").classList.toggle("text-white");
+        });
 });
 
 function addWorkout() {
-    let name = document.getElementById('workout-name').value.trim();
-    let type = document.getElementById('workout-type').value;
-    let duration = document.getElementById('workout-duration').value.trim();
-    let intensity = document.querySelector('input[name="intensity"]:checked')?.value;
-    let frequency = document.getElementById('workout-frequency').value.trim();
-    let comment = document.getElementById('workout-comment').value;
+    let name = document.getElementById("workout-name").value.trim();
+    let type = document.getElementById("workout-type").value;
+    let duration = document.getElementById("workout-duration").value.trim();
+    let intensity = document.querySelector(
+        'input[name="intensity"]:checked'
+    )?.value;
+    let frequency = document.getElementById("workout-frequency").value.trim();
+    let comment = document.getElementById("workout-comment").value;
     let completed = false;
 
     if (!name || !type || !duration || !intensity || !frequency) {
-        alert('Пожалуйста, заполните все обязательные поля.');
+        alert("Пожалуйста, заполните все обязательные поля.");
         return;
     }
 
-    let workouts = JSON.parse(localStorage.getItem('workouts')) || [];
-    workouts.push({ name, type, duration, intensity, frequency, comment, completed });
-    localStorage.setItem('workouts', JSON.stringify(workouts));
+    let workouts = JSON.parse(localStorage.getItem("workouts")) || [];
+    workouts.push({
+        name,
+        type,
+        duration,
+        intensity,
+        frequency,
+        comment,
+        completed,
+    });
+    localStorage.setItem("workouts", JSON.stringify(workouts));
 
     loadWorkouts();
 }
 
 function loadWorkouts(filter = "") {
-    let workoutList = document.getElementById('workout-list');
-    workoutList.innerHTML = '';
-    let workouts = JSON.parse(localStorage.getItem('workouts')) || [];
+    let workoutList = document.getElementById("workout-list");
+    workoutList.innerHTML = "";
+    let workouts = JSON.parse(localStorage.getItem("workouts")) || [];
 
-    let filteredWorkouts = filter ? workouts.filter(workout => workout.type === filter) : workouts;
+    let filteredWorkouts = filter
+        ? workouts.filter((workout) => workout.type === filter)
+        : workouts;
 
     filteredWorkouts.forEach((workout, index) => {
-        let workoutElement = document.createElement('div');
-        workoutElement.classList.add('bg-gray-200', 'p-4', 'rounded-lg', 'flex', 'justify-between', 'items-center');
+        let workoutElement = document.createElement("div");
+        workoutElement.classList.add(
+            "bg-gray-200",
+            "p-4",
+            "rounded-lg",
+            "flex",
+            "justify-between",
+            "items-center"
+        );
         workoutElement.innerHTML = `
             <div>
                 <h3 class='text-lg font-semibold'>${workout.name}</h3>
-                <p>${workout.type}, ${workout.duration} мин, Интенсивность: ${workout.intensity}, ${workout.frequency} раз в неделю</p>
+                <p>${workout.type}, ${workout.duration} мин, Интенсивность: ${
+            workout.intensity
+        }, ${workout.frequency} раз в неделю</p>
                 <p class='text-gray-500'>${workout.comment}</p>
-                <label><input type='checkbox' onchange='toggleCompletion(${index})' ${workout.completed ? "checked" : ""}> Завершено</label>
+                <label><input type='checkbox' onchange='toggleCompletion(${index})' ${
+            workout.completed ? "checked" : ""
+        }> Завершено</label>
             </div>
             <button onclick='deleteWorkout(${index})' class='bg-red-500 text-white p-2 rounded'>Удалить</button>
         `;
@@ -107,24 +141,32 @@ function loadWorkouts(filter = "") {
 }
 
 function deleteWorkout(index) {
-    let workouts = JSON.parse(localStorage.getItem('workouts')) || [];
+    let workouts = JSON.parse(localStorage.getItem("workouts")) || [];
     workouts.splice(index, 1);
-    localStorage.setItem('workouts', JSON.stringify(workouts));
+    localStorage.setItem("workouts", JSON.stringify(workouts));
     loadWorkouts();
 }
 
 function toggleCompletion(index) {
-    let workouts = JSON.parse(localStorage.getItem('workouts')) || [];
+    let workouts = JSON.parse(localStorage.getItem("workouts")) || [];
     workouts[index].completed = !workouts[index].completed;
-    localStorage.setItem('workouts', JSON.stringify(workouts));
+    localStorage.setItem("workouts", JSON.stringify(workouts));
     loadWorkouts();
 }
 
 function updateStats() {
-    let workouts = JSON.parse(localStorage.getItem('workouts')) || [];
+    let workouts = JSON.parse(localStorage.getItem("workouts")) || [];
     let totalWorkouts = workouts.length;
-    let avgDuration = totalWorkouts > 0 ? (workouts.reduce((sum, w) => sum + Number(w.duration), 0) / totalWorkouts).toFixed(1) : 0;
-    document.getElementById('stats').innerHTML = `Всего тренировок: ${totalWorkouts}, Средняя длительность: ${avgDuration} мин`;
+    let avgDuration =
+        totalWorkouts > 0
+            ? (
+                  workouts.reduce((sum, w) => sum + Number(w.duration), 0) /
+                  totalWorkouts
+              ).toFixed(1)
+            : 0;
+    document.getElementById(
+        "stats"
+    ).innerHTML = `Всего тренировок: ${totalWorkouts}, Средняя длительность: ${avgDuration} мин`;
 }
 
 function filterWorkouts(type) {
