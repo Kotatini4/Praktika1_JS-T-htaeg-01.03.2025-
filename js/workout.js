@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             <input type='number' id='workout-frequency' placeholder='Частота в неделю' class='border p-2 w-full mb-2' required>
             <textarea id='workout-comment' placeholder='Комментарий (необязательно)' class='border p-2 w-full mb-2'></textarea>
-            <button type='submit' class='bg-blue-500 text-white p-2 w-full rounded'>Добавить тренировку</button>
+            <button type="submit" class="bg-blue-500 text-white p-2 w-[90%] rounded block mx-auto">Добавить тренировку</button>
         </form>
         <div id='filters' class='mb-4'>
             <button onclick='filterWorkouts("Силовая")' class='my-btn-gree bg-green-500 text-white p-2 rounded'>Силовые</button>
