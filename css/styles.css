@@ -156,3 +156,9 @@ button:hover::after {
         0.1
     ); /* Легкая тень на заднем фоне кнопки */
 }
+div.bg-gray-200{
+    color: #000000;
+}
+div.bg-gray-900{
+    color: #ffffff;
+}
