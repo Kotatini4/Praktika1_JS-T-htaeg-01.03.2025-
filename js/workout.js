@@ -1,9 +1,18 @@
+// Глобальная переменная для хранения состояния тёмного режима
+let darkModeEnabled = false;
+
 document.addEventListener("DOMContentLoaded", () => {
+    // Применяем тёмный режим к body при загрузке страницы
+    if (darkModeEnabled) {
+        document.body.classList.add("bg-gray-900");
+    } else {
+        document.body.classList.remove("bg-gray-900");
+    }
+
     let workoutContent = document.getElementById("workout-content");
     workoutContent.innerHTML = `
-        
         <button id='toggle-dark-mode' class='bg-gray-800 text-white p-2 rounded mb-4'>Тёмный режим</button>
-        <form id='workout-form' class='bg-white p-4 shadow-md rounded-lg mb-6'>
+        <form id='workout-form' class='${darkModeEnabled ? "bg-gray-900" : "bg-white"} p-4 shadow-md rounded-lg mb-6'>
             <input type='text' id='workout-name' placeholder='Название тренировки' class='border p-2 w-full mb-2' required>
             <select id='workout-type' class='border p-2 w-full mb-2'>
                 <option value='Силовая'>Силовая</option>
@@ -26,131 +35,88 @@ document.addEventListener("DOMContentLoaded", () => {
             <button onclick='filterWorkouts("Йога")' class='my-btn-purple bg-purple-500 text-white p-2 rounded'>Йога</button>
             <button onclick='filterWorkouts("")' class='my-btn-gray bg-gray-500 text-white p-2 rounded'>Все</button>
         </div>
-        <div id='workout-list' class='bg-white p-4 shadow-md rounded-lg mb-6'></div>
-        <div id='stats' class='mt-4 text-lg'></div>
+        <div id='workout-list' class='${darkModeEnabled ? "bg-gray-900" : "bg-white"} p-4 shadow-md rounded-lg mb-6'></div>
+        <div id='stats' class='mt-4 text-lg ${darkModeEnabled ? "bg-gray-900 text-white" : ""}'></div>
         <button id='clear-workouts' class='bg-red-500 text-white p-2 rounded mt-4'>Удалить все тренировки</button>
     `;
 
     loadWorkouts();
 
-    document
-        .getElementById("workout-form")
-        .addEventListener("submit", function (event) {
-            event.preventDefault();
-            addWorkout();
-        });
+    document.getElementById("workout-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        addWorkout();
+    });
 
-    document
-        .getElementById("clear-workouts")
-        .addEventListener("click", function () {
-            localStorage.removeItem("workouts");
-            loadWorkouts();
-        });
+    document.getElementById("clear-workouts").addEventListener("click", function () {
+        localStorage.removeItem("workouts");
+        loadWorkouts();
+    });
 
-    document
-        .getElementById("toggle-dark-mode")
-        .addEventListener("click", function () {
-            document.body.classList.toggle("bg-gray-900");
-            document.querySelectorAll("h1").forEach((h2) => {
-                h2.classList.toggle("text-white");
-            });
-            document.querySelectorAll("h2").forEach((h2) => {
-                h2.classList.toggle("text-white");
-            });
-            document
-                .getElementById("workout-content")
-                .classList.toggle("bg-gray-900");
-            document
-                .getElementById("workout-form")
-                .classList.toggle("bg-gray-900");
-            document
-                .getElementById("workout-list")
-                .classList.toggle("bg-gray-900");
-
-            let elements = document.getElementsByClassName("workoutblacklist");
-
-            for (let i = 0; i < elements.length; i++) {
-                elements[i].classList.toggle("bg-gray-700");
-                elements[i].classList.toggle("text-white");
-                elements[i].classList.toggle("border-gray-600");
-            }
-
-            document.querySelectorAll(".container").forEach((div) => {
-                div.classList.toggle("bg-gray-900");
-            });
-            document.getElementById("stats").classList.toggle("bg-gray-900");
-            document.getElementById("stats").classList.toggle("text-white");
-
-            document.querySelectorAll("label").forEach((label) => {
-                label.classList.toggle("text-white");
-            });
-
-            document
-                .querySelectorAll('input[type="radio"]')
-                .forEach((input) => {
-                    input.classList.toggle("bg-gray-700");
-                    input.classList.toggle("text-white");
-                    input.classList.toggle("border-gray-600");
-                });
-            document
-                .getElementById("workout-name")
-                .classList.toggle("bg-gray-700");
-            document
-                .getElementById("workout-name")
-                .classList.toggle("text-white");
-            document
-                .getElementById("workout-name")
-                .classList.toggle("border-gray-600");
-
-            document
-                .getElementById("workout-type")
-                .classList.toggle("bg-gray-700");
-            document
-                .getElementById("workout-type")
-                .classList.toggle("text-white");
-            document
-                .getElementById("workout-type")
-                .classList.toggle("border-gray-600");
-
-            document
-                .getElementById("workout-duration")
-                .classList.toggle("bg-gray-700");
-            document
-                .getElementById("workout-duration")
-                .classList.toggle("text-white");
-            document
-                .getElementById("workout-duration")
-                .classList.toggle("border-gray-600");
-
-            document
-                .getElementById("workout-frequency")
-                .classList.toggle("bg-gray-700");
-            document
-                .getElementById("workout-frequency")
-                .classList.toggle("text-white");
-            document
-                .getElementById("workout-frequency")
-                .classList.toggle("border-gray-600");
-
-            document
-                .getElementById("workout-comment")
-                .classList.toggle("bg-gray-700");
-            document
-                .getElementById("workout-comment")
-                .classList.toggle("text-white");
-            document
-                .getElementById("workout-comment")
-                .classList.toggle("border-gray-600");
-        });
+    document.getElementById("toggle-dark-mode").addEventListener("click", function () {
+        // Переключаем переменную и сохраняем в localStorage
+        darkModeEnabled = !darkModeEnabled;
+        localStorage.setItem("darkMode", darkModeEnabled);
+        applyDarkMode();
+    });
 });
+
+// Функция, которая применяет нужные классы в зависимости от darkModeEnabled
+function applyDarkMode() {
+    if (darkModeEnabled) {
+        document.body.classList.add("bg-gray-900");
+        document.getElementById("workout-content").classList.add("bg-gray-900");
+        document.getElementById("workout-form").classList.remove("bg-white");
+        document.getElementById("workout-form").classList.add("bg-gray-900");
+        document.getElementById("workout-list").classList.remove("bg-white");
+        document.getElementById("workout-list").classList.add("bg-gray-900");
+        document.getElementById("stats").classList.add("bg-gray-900", "text-white");
+
+        document.querySelectorAll("h1, h2, label").forEach(el => el.classList.add("text-white"));
+
+        document.querySelectorAll('input[type="radio"]').forEach((input) => {
+            input.classList.add("bg-gray-700", "text-white", "border-gray-600");
+        });
+        document.getElementById("workout-name").classList.add("bg-gray-700", "text-white", "border-gray-600");
+        document.getElementById("workout-type").classList.add("bg-gray-700", "text-white", "border-gray-600");
+        document.getElementById("workout-duration").classList.add("bg-gray-700", "text-white", "border-gray-600");
+        document.getElementById("workout-frequency").classList.add("bg-gray-700", "text-white", "border-gray-600");
+        document.getElementById("workout-comment").classList.add("bg-gray-700", "text-white", "border-gray-600");
+        document.querySelectorAll(".container").forEach((div) => {
+            div.classList.add("bg-gray-900");
+        });
+    } else {
+        document.body.classList.remove("bg-gray-900");
+        document.getElementById("workout-content").classList.remove("bg-gray-900");
+        document.getElementById("workout-form").classList.remove("bg-gray-900");
+        document.getElementById("workout-form").classList.add("bg-white");
+        document.getElementById("workout-list").classList.remove("bg-gray-900");
+        document.getElementById("workout-list").classList.add("bg-white");
+        document.getElementById("stats").classList.remove("bg-gray-900", "text-white");
+
+        document.querySelectorAll("h1, h2, label").forEach(el => el.classList.remove("text-white"));
+
+        document.querySelectorAll('input[type="radio"]').forEach((input) => {
+            input.classList.remove("bg-gray-700", "text-white", "border-gray-600");
+        });
+        document.getElementById("workout-name").classList.remove("bg-gray-700", "text-white", "border-gray-600");
+        document.getElementById("workout-type").classList.remove("bg-gray-700", "text-white", "border-gray-600");
+        document.getElementById("workout-duration").classList.remove("bg-gray-700", "text-white", "border-gray-600");
+        document.getElementById("workout-frequency").classList.remove("bg-gray-700", "text-white", "border-gray-600");
+        document.getElementById("workout-comment").classList.remove("bg-gray-700", "text-white", "border-gray-600");
+        document.querySelectorAll(".container").forEach((div) => {
+            div.classList.remove("bg-gray-900");
+        });
+    }
+    // После изменения стилей перезагружаем список тренировок, чтобы для динамических элементов учесть режим
+    loadWorkouts();
+}
+
 
 function addWorkout() {
     let name = document.getElementById("workout-name").value.trim();
     let type = document.getElementById("workout-type").value;
     let duration = document.getElementById("workout-duration").value.trim();
-    let intensity = document.querySelector(
-        'input[name="intensity"]:checked'
-    )?.value;
+    let intensity = document.querySelector('input[name="intensity"]:checked')?.value;
     let frequency = document.getElementById("workout-frequency").value.trim();
     let comment = document.getElementById("workout-comment").value;
     let completed = false;
@@ -186,25 +152,17 @@ function loadWorkouts(filter = "") {
 
     filteredWorkouts.forEach((workout, index) => {
         let workoutElement = document.createElement("div");
-        workoutElement.classList.add(
-            "workoutblacklist",
-            "bg-gray-200",
-            "p-4",
-            "rounded-lg",
-            "flex",
-            "justify-between",
-            "items-center"
-        );
+        // Используем глобальную переменную darkModeEnabled для назначения классов
+        let baseClasses = "workoutblacklist mb-5 p-4 rounded-lg flex justify-between items-center";
+        let modeClasses = darkModeEnabled ? "bg-gray-700 text-white border-gray-600" : "bg-gray-200";
+        workoutElement.className = `${baseClasses} ${modeClasses}`;
+
         workoutElement.innerHTML = `
             <div>
                 <h3 class='text-lg font-semibold'>${workout.name}</h3>
-                <p>${workout.type}, ${workout.duration} мин, Интенсивность: ${
-            workout.intensity
-        }, ${workout.frequency} раз в неделю</p>
-                <p class='text-gray-500'>${workout.comment}</p>
-                <label><input type='checkbox' onchange='toggleCompletion(${index})' ${
-            workout.completed ? "checked" : ""
-        }> Завершено</label>
+                <p>${workout.type}, ${workout.duration} мин, Интенсивность: ${workout.intensity}, ${workout.frequency} раз в неделю</p>
+                <p class='${darkModeEnabled ? "text-gray-300" : "text-gray-500"}'>${workout.comment}</p>
+                <label><input type='checkbox' onchange='toggleCompletion(${index})' ${workout.completed ? "checked" : ""}> Завершено</label>
             </div>
             <button onclick='deleteWorkout(${index})' class='bg-red-500 text-white p-2 rounded'>Удалить</button>
         `;
@@ -233,14 +191,9 @@ function updateStats() {
     let totalWorkouts = workouts.length;
     let avgDuration =
         totalWorkouts > 0
-            ? (
-                  workouts.reduce((sum, w) => sum + Number(w.duration), 0) /
-                  totalWorkouts
-              ).toFixed(1)
+            ? (workouts.reduce((sum, w) => sum + Number(w.duration), 0) / totalWorkouts).toFixed(1)
             : 0;
-    document.getElementById(
-        "stats"
-    ).innerHTML = `Всего тренировок: ${totalWorkouts}, Средняя длительность: ${avgDuration} мин`;
+    document.getElementById("stats").innerHTML = `Всего тренировок: ${totalWorkouts}, Средняя длительность: ${avgDuration} мин`;
 }
 
 function filterWorkouts(type) {
