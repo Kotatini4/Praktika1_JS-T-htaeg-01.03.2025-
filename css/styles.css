@@ -104,7 +104,7 @@ button:hover {
 #clear-workouts:hover,
 .roadmap-btn:hover {
     background-color: #e11d48; /* Красный цвет для кнопки "Удалить все тренировки" */
-    transform: scale(1.1); /* Увеличение кнопки при наведении */
+    transform: scale(1.05); /* Увеличение кнопки при наведении */
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Тень */
 }
 

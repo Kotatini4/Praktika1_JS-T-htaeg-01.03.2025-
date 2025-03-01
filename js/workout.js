@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
             for (let i = 0; i < elements.length; i++) {
                 elements[i].classList.toggle("bg-gray-700");
                 elements[i].classList.toggle("text-white");
+                elements[i].classList.toggle("border-gray-600");
             }
 
             document.querySelectorAll(".container").forEach((div) => {
