@@ -28,7 +28,7 @@
     -   📄 Данные о тренировках сохраняются в localStorage браузера.
 -   📂 **data**
     -   📄 `roadmap.json` (данные по дорожной карте)
-        📂 **Github**
+-   📂 **Github**
     -   📄 `https://github.com/Kotatini4/Praktika1_JS-T-htaeg-01.03.2025-.git' - ссылка на репозиторий
 
 ## Новости взяты из бесплатного API https://newsapi.org/
